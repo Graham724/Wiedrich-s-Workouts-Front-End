@@ -1,10 +1,16 @@
 .App {
   text-align: center;
+  background-color: #61dafb;
+  min-height: 90vh;
+}
+.title {
+  font-size: 4vw;
+  padding-top: 10px;
+  color: white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+li:hover {
+  background-color: white;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -15,7 +21,7 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
