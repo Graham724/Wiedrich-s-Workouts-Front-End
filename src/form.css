@@ -3,3 +3,9 @@
     font-size: 25px;
     text-align: center;
 }
+
+.mb-2 {
+    text-align: left;
+    font-size: 25px;
+    padding: 10px 100px;
+}
