@@ -10,6 +10,8 @@ import Nav from 'react-bootstrap/Nav'
 import Home from './Components/Home'
 import Recipes from './Components/Recipes'
 import Workouts from './Components/Workouts';
+import CreateRecipe from './Components/CreateRecipe';
+import CreateWorkout from './Components/CreateWorkout'
 
 
 function App() {
@@ -117,6 +119,16 @@ function App() {
                 <Link to="/workouts">Workouts</Link>
                 </Nav.Link>
               </Nav.Item>
+              <Nav.Item>
+                <Nav.Link>
+                <Link to="/createRecipe">Create Recipe</Link>
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link>
+                <Link to="/createWorkout">Create Workout</Link>
+                </Nav.Link>
+              </Nav.Item>
             </Nav>
           </Container>
       </nav>
@@ -126,6 +138,10 @@ function App() {
             <Route path ='/' element={<Home/>} />
             <Route path ='/recipes' element={<Recipes recipes={recipes}/>} />
             <Route path ='/workouts' element={<Workouts workouts={workouts}/>} />
+            <Route path ='/createRecipe' element={<CreateRecipe/>} />
+            <Route path ='/createWorkout' element={<CreateWorkout/>} />
+            {/* <Route path ='/tickets' element={<Tickets tickets={tickets}/>} />
+            <Route path ='/signin' element={<Signin/>} /> */}
           </Routes>
         </div>
         </Router>
