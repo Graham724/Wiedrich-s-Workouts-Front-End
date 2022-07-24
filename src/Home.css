@@ -1,0 +1,39 @@
+body {
+ text-align: center;
+
+ padding: 50px;
+
+ background: linear-gradient(
+       to right, #d5a2f8,
+       #12dee6, #ff83ea); 
+   background-size: 400% 400%;
+   animation: animate-background 25s infinite ease-in-out;
+}
+
+@keyframes animate-background {
+ 0%{
+     background-position: 0 50%;
+ }
+ 50%{
+     background-position: 100% 50%;
+ }
+ 100%{
+     background-position: 0 50%;
+ }
+}
+
+.homepage {
+  padding: 20px 40px 40px;
+  max-width: 600px;
+
+  }
+
+.homepage_image {
+  width: 250px;
+  margin: 30px 30px 30px 0;
+  float: left;
+}
+
+.homepage_text {
+  display: inline;
+}
