@@ -14,9 +14,7 @@ import Workouts from './Components/Workouts';
 
 function App() {
 
-  //Mock data
-  // const recipes = ['Lime and Cilantro Chicken and Rice', 'Chocolate and Raspberry Protein Shake', 'Veggie Omelet', 'Sugar Free Terriyaki Turkey Meatballs', 'Salmon and Asparagus']
-
+  //Mock Data
   const recipes = [
     {
       'Title': 'Lime and Cilantro Chicken and Rice',
@@ -25,7 +23,7 @@ function App() {
       'Days': 1
     },
     {
-      'Title': 'Chocolate and Raspberry Protein Shake',
+      'Title': 'Chocolate & Raspberry Protein Shake',
       'Text': 'Super quick post workout treat',
       'Img': 'Images/Default_Chicken_Breast.jpg',
       'Days': 1
@@ -45,6 +43,12 @@ function App() {
     {
       'Title': 'Salmon and Asparagus',
       'Text': 'Treat yourself to the gifts of the sea!',
+      'Img': 'Images/Default_Chicken_Breast.jpg',
+      'Days': 1
+    },
+    {
+      'Title': 'Quinoa Salad',
+      'Text': 'Get some healthy grain in your system',
       'Img': 'Images/Default_Chicken_Breast.jpg',
       'Days': 1
     }
@@ -80,18 +84,24 @@ function App() {
       'Text': 'text',
       'Img': 'Images/Default_Workout.jpg',
       'Days': 1
+    },
+    {
+      'Title': '10 Minute Yoga Exercise',
+      'Text': 'text',
+      'Img': 'Images/Default_Workout.jpg',
+      'Days': 1
     }
   ]
-
-  // const workouts = ['10 Minute Shoulder Workout', '30 Minute Core Workout', 'Full Length Upper Body Workout', 'Mobility Routine', ' 5 Minute Pre-Workout Stretch']
 
   return (
     <div className="App">
       <Router>
       <header className="App-header">
         <h1 className='title'>Wiedrich's Workouts</h1>
-        <Container>
-            <Nav variant='tabs' fill>
+      </header>
+      <nav className='App-nav'>
+      <Container>
+            <Nav variant='pills' fill defaultActiveKey="/Home">
               <Nav.Item>
                 <Nav.Link>
                 <Link to="/">Home</Link>
@@ -109,15 +119,13 @@ function App() {
               </Nav.Item>
             </Nav>
           </Container>
-      </header>
+      </nav>
 
       <div className='display'>
           <Routes>
             <Route path ='/' element={<Home/>} />
             <Route path ='/recipes' element={<Recipes recipes={recipes}/>} />
             <Route path ='/workouts' element={<Workouts workouts={workouts}/>} />
-            {/* <Route path ='/tickets' element={<Tickets tickets={tickets}/>} />
-            <Route path ='/signin' element={<Signin/>} /> */}
           </Routes>
         </div>
         </Router>

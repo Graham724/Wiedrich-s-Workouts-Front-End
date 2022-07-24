@@ -1,26 +1,15 @@
 .App {
   text-align: center;
-  background-color: #61dafb;
-  min-height: 90vh;
 }
+
 .title {
   font-size: 4vw;
   padding-top: 10px;
   color: white;
 }
 
-li:hover {
-  background-color: white;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
+  background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5) ), url('~/public/Images/fitness-banner.jpg');
   min-height: 10vh;
   display: flex;
   flex-direction: column;
@@ -30,15 +19,9 @@ li:hover {
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-nav {
+border-bottom: 1px solid black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
