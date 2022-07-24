@@ -16,6 +16,7 @@ import CreateWorkout from './Components/CreateWorkout'
 
 function App() {
 
+
   //Mock Data
   const recipes = [
     {
@@ -140,8 +141,6 @@ function App() {
             <Route path ='/workouts' element={<Workouts workouts={workouts}/>} />
             <Route path ='/createRecipe' element={<CreateRecipe/>} />
             <Route path ='/createWorkout' element={<CreateWorkout/>} />
-            {/* <Route path ='/tickets' element={<Tickets tickets={tickets}/>} />
-            <Route path ='/signin' element={<Signin/>} /> */}
           </Routes>
         </div>
         </Router>
