@@ -15,9 +15,75 @@ import Workouts from './Components/Workouts';
 function App() {
 
   //Mock data
-  const recipes = ['Lime and Cilantro Chicken and Rice', 'Chocolate and Raspberry Protein Shake', 'Veggie Omelet', 'Sugar Free Terriyaki Turkey Meatballs', 'Salmon and Asparagus']
+  // const recipes = ['Lime and Cilantro Chicken and Rice', 'Chocolate and Raspberry Protein Shake', 'Veggie Omelet', 'Sugar Free Terriyaki Turkey Meatballs', 'Salmon and Asparagus']
 
-  const workouts = ['10 Minute Shoulder Workout', '30 Minute Core Workout', 'Full Length Upper Body Workout', 'Mobility Routine', ' 5 Minute Pre-Workout Stretch']
+  const recipes = [
+    {
+      'Title': 'Lime and Cilantro Chicken and Rice',
+      'Text': 'Fresh and easy chicken dish',
+      'Img': 'Images/Default_Chicken_Breast.jpg',
+      'Days': 1
+    },
+    {
+      'Title': 'Chocolate and Raspberry Protein Shake',
+      'Text': 'Super quick post workout treat',
+      'Img': 'Images/Default_Chicken_Breast.jpg',
+      'Days': 1
+    },
+    {
+      'Title': 'Veggie Omelet',
+      'Text': 'A breakfast classic',
+      'Img': 'Images/Default_Chicken_Breast.jpg',
+      'Days': 1
+    },
+    {
+      'Title': 'Terriyaki Turkey Meatballs',
+      'Text': 'For a savory yet healthy dinner',
+      'Img': 'Images/Default_Chicken_Breast.jpg',
+      'Days': 1
+    },
+    {
+      'Title': 'Salmon and Asparagus',
+      'Text': 'Treat yourself to the gifts of the sea!',
+      'Img': 'Images/Default_Chicken_Breast.jpg',
+      'Days': 1
+    }
+  ]
+
+  const workouts = [
+    {
+      'Title': '10 Minute Shoulder Workout',
+      'Text': 'text',
+      'Img': 'Images/Default_Workout.jpg',
+      'Days': 1
+    },
+    {
+      'Title': '30 Minute Core Workout',
+      'Text': 'text',
+      'Img': 'Images/Default_Workout.jpg',
+      'Days': 1
+    },
+    {
+      'Title': 'Full Length Upper Body Workout',
+      'Text': 'text',
+      'Img': 'Images/Default_Workout.jpg',
+      'Days': 1
+    },
+    {
+      'Title': 'Mobility Routine',
+      'Text': 'text',
+      'Img': 'Images/Default_Workout.jpg',
+      'Days': 1
+    },
+    {
+      'Title': '5 Minute Pre-Workout Stretch',
+      'Text': 'text',
+      'Img': 'Images/Default_Workout.jpg',
+      'Days': 1
+    }
+  ]
+
+  // const workouts = ['10 Minute Shoulder Workout', '30 Minute Core Workout', 'Full Length Upper Body Workout', 'Mobility Routine', ' 5 Minute Pre-Workout Stretch']
 
   return (
     <div className="App">
