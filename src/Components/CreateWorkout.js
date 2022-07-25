@@ -7,7 +7,7 @@ export default function CreateWorkout () {
         <Form>
           <Form.Group className="mb-3" controlId="formWorkoutName">
             <Form.Label>Workout Name</Form.Label>
-            <Form.Control type="recipeName" required="required" placeholder="Enter Workout Name" />
+            <Form.Control type="workoutName" required="required" placeholder="Enter Workout Name" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formImage">
             <Form.Label>Image</Form.Label>
@@ -20,6 +20,14 @@ export default function CreateWorkout () {
           <Form.Group className="mb-3" controlId="formsteps">
             <Form.Label>Steps</Form.Label>
             <Form.Control type="steps" required="required" as="textarea" rows={3} placeholder="Enter Steps" />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formReps">
+            <Form.Label>Reps</Form.Label>
+            <Form.Control type="Reps" required="required" placeholder="Enter Amount of Reps" />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formLoad">
+            <Form.Label>Load</Form.Label>
+            <Form.Control type="load" required="required" placeholder="Enter Load Amount" />
           </Form.Group>
           
           <Button variant="primary" type="submit">
