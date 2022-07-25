@@ -1,3 +1,7 @@
+WIEDRICHS-WORKOUTS is a place where users can choose from 100's of unique workouts and recipes to jumpstart thier health and wellness journey. Users can personalize thier wellness by adding, updating, and deleting workouts and recipes.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

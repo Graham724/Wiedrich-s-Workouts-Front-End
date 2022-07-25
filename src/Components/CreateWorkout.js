@@ -25,9 +25,9 @@ export default function CreateWorkout () {
             <Form.Label>Reps</Form.Label>
             <Form.Control type="Reps" required="required" placeholder="Enter Amount of Reps" />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="formLoad">
-            <Form.Label>Load</Form.Label>
-            <Form.Control type="load" required="required" placeholder="Enter Load Amount" />
+          <Form.Group className="mb-3" controlId="formWeight">
+            <Form.Label>Weight</Form.Label>
+            <Form.Control type="weight" required="required" placeholder="Enter Weight Amount" />
           </Form.Group>
           
           <Button variant="primary" type="submit">
