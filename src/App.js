@@ -25,7 +25,10 @@ function App() {
       'Img': 'Images/Default_Chicken_Breast.jpg',
       'Servings': 4,
       'PrepTime': 15,
-      'CookTime': 45
+      'CookTime': 45,
+      'Gluten Free': true,
+      'Vegan': false,
+      'Steps': 'text'
     },
     {
       'Title': 'Chocolate & Raspberry Protein Shake',
@@ -33,7 +36,10 @@ function App() {
       'Img': 'Images/Default_Chicken_Breast.jpg',
       'Servings': 1,
       'PrepTime': 5,
-      'CookTime': 5
+      'CookTime': 5,
+      'Gluten Free': true,
+      'Vegan': false,
+      'Steps': 'text'
     },
     {
       'Title': 'Veggie Omelet',
@@ -41,7 +47,10 @@ function App() {
       'Img': 'Images/Default_Chicken_Breast.jpg',
       'Servings': 1,
       'PrepTime': 10,
-      'CookTime': 5
+      'CookTime': 5,
+      'Gluten Free': true,
+      'Vegan': false,
+      'Steps': 'text'
     },
     {
       'Title': 'Terriyaki Turkey Meatballs',
@@ -49,7 +58,10 @@ function App() {
       'Img': 'Images/Default_Chicken_Breast.jpg',
       'Servings': 4,
       'PrepTime': 15,
-      'CookTime': 15
+      'CookTime': 15,
+      'Gluten Free': true,
+      'Vegan': false,
+      'Steps': 'text'
     },
     {
       'Title': 'Salmon and Asparagus',
@@ -57,7 +69,10 @@ function App() {
       'Img': 'Images/Default_Chicken_Breast.jpg',
       'Servings': 4,
       'PrepTime': 15,
-      'CookTime': 25
+      'CookTime': 25,
+      'Gluten Free': true,
+      'Vegan': false,
+      'Steps': 'text'
     },
     {
       'Title': 'Quinoa Salad',
@@ -65,7 +80,10 @@ function App() {
       'Img': 'Images/Default_Chicken_Breast.jpg',
       'Servings': 4,
       'PrepTime': 15,
-      'CookTime': 5
+      'CookTime': 5,
+      'Gluten Free': true,
+      'Vegan': true,
+      'Steps': 'text'
     }
   ]
 
@@ -75,42 +93,47 @@ function App() {
       'Description': 'Description',
       'Img': 'Images/Default_Workout.jpg',
       'Type': 'Upper Body Strength',
-      'Time': 10
+      'Time': 10,
+      'Steps': 'text'
     },
     {
       'Title': '30 Minute Core Workout',
       'Description': 'Description',
       'Img': 'Images/Default_Workout.jpg',
-      'Type': 'Core Strength'
+      'Type': 'Core Workout',
+      'Steps': 'text'      
     },
     {
       'Title': 'Full Length Upper Body Workout',
       'Description': 'Description',
       'Img': 'Images/Default_Workout.jpg',
       'Type': 'Upper Body Strength',
-      'Time': 60
+      'Time': 60,
+      'Steps': 'text'
     },
     {
       'Title': 'Mobility Routine',
       'Description': 'Description',
       'Img': 'Images/Default_Workout.jpg',
       'Type': 'Flexibilty/Recovery',
-      'Time': 15
-      
+      'Time': 15,
+      'Steps': 'text'
     },
     {
       'Title': '5 Minute Pre-Workout Stretch',
       'Description': 'Description',
       'Img': 'Images/Default_Workout.jpg',
-      'Type': 'Warmup',
-      'Time': 5
+      'Type': 'Flexibilty/Recovery',
+      'Time': 5,
+      'Steps': 'text'
     },
     {
       'Title': '10 Minute Yoga Exercise',
       'Description': 'Description',
       'Img': 'Images/Default_Workout.jpg',
-      'Type': 'Flexibilty/Recovery',
-      'Time': 10
+      'Type': 'Yoga',
+      'Time': 10,
+      'Steps': 'text'
     }
   ]
 
