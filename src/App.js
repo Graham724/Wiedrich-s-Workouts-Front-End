@@ -21,78 +21,96 @@ function App() {
   const recipes = [
     {
       'Title': 'Lime and Cilantro Chicken and Rice',
-      'Text': 'Fresh and easy chicken dish',
+      'Description': 'Fresh and easy chicken dish',
       'Img': 'Images/Default_Chicken_Breast.jpg',
-      'Days': 1
+      'Servings': 4,
+      'PrepTime': 15,
+      'CookTime': 45
     },
     {
       'Title': 'Chocolate & Raspberry Protein Shake',
-      'Text': 'Super quick post workout treat',
+      'Description': 'Super quick post workout treat',
       'Img': 'Images/Default_Chicken_Breast.jpg',
-      'Days': 1
+      'Servings': 1,
+      'PrepTime': 5,
+      'CookTime': 5
     },
     {
       'Title': 'Veggie Omelet',
-      'Text': 'A breakfast classic',
+      'Description': 'A breakfast classic',
       'Img': 'Images/Default_Chicken_Breast.jpg',
-      'Days': 1
+      'Servings': 1,
+      'PrepTime': 10,
+      'CookTime': 5
     },
     {
       'Title': 'Terriyaki Turkey Meatballs',
-      'Text': 'For a savory yet healthy dinner',
+      'Description': 'For a savory yet healthy dinner',
       'Img': 'Images/Default_Chicken_Breast.jpg',
-      'Days': 1
+      'Servings': 4,
+      'PrepTime': 15,
+      'CookTime': 15
     },
     {
       'Title': 'Salmon and Asparagus',
-      'Text': 'Treat yourself to the gifts of the sea!',
+      'Description': 'Treat yourself to the gifts of the sea!',
       'Img': 'Images/Default_Chicken_Breast.jpg',
-      'Days': 1
+      'Servings': 4,
+      'PrepTime': 15,
+      'CookTime': 25
     },
     {
       'Title': 'Quinoa Salad',
-      'Text': 'Get some healthy grain in your system',
+      'Description': 'Get some healthy grain in your system',
       'Img': 'Images/Default_Chicken_Breast.jpg',
-      'Days': 1
+      'Servings': 4,
+      'PrepTime': 15,
+      'CookTime': 5
     }
   ]
 
   const workouts = [
     {
       'Title': '10 Minute Shoulder Workout',
-      'Text': 'text',
+      'Description': 'Description',
       'Img': 'Images/Default_Workout.jpg',
-      'Days': 1
+      'Type': 'Upper Body Strength',
+      'Time': 10
     },
     {
       'Title': '30 Minute Core Workout',
-      'Text': 'text',
+      'Description': 'Description',
       'Img': 'Images/Default_Workout.jpg',
-      'Days': 1
+      'Type': 'Core Strength'
     },
     {
       'Title': 'Full Length Upper Body Workout',
-      'Text': 'text',
+      'Description': 'Description',
       'Img': 'Images/Default_Workout.jpg',
-      'Days': 1
+      'Type': 'Upper Body Strength',
+      'Time': 60
     },
     {
       'Title': 'Mobility Routine',
-      'Text': 'text',
+      'Description': 'Description',
       'Img': 'Images/Default_Workout.jpg',
-      'Days': 1
+      'Type': 'Flexibilty/Recovery',
+      'Time': 15
+      
     },
     {
       'Title': '5 Minute Pre-Workout Stretch',
-      'Text': 'text',
+      'Description': 'Description',
       'Img': 'Images/Default_Workout.jpg',
-      'Days': 1
+      'Type': 'Warmup',
+      'Time': 5
     },
     {
       'Title': '10 Minute Yoga Exercise',
-      'Text': 'text',
+      'Description': 'Description',
       'Img': 'Images/Default_Workout.jpg',
-      'Days': 1
+      'Type': 'Flexibilty/Recovery',
+      'Time': 10
     }
   ]
 

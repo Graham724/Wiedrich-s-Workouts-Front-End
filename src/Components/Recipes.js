@@ -1,37 +1,50 @@
-import Container from 'react-bootstrap/Container'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import CardGroup from 'react-bootstrap/CardGroup';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 
 export default function Recipes(props) {
- const recipes = props.recipes.filter(x => 
-  x.Days === 1
+ const recipes = props.recipes.map((eachRecipe) => {
+  return (
+     <Col xs={12} md={4} sm={6} lg={4} className='p-2'>
+          <CardGroup>
+          <Card>
+               <Card.Header>
+                    <Card.Title>
+                         {eachRecipe.Title}
+                    </Card.Title>
+               </Card.Header>
+               <Card.Img alt='Food' variant='bottom' src={eachRecipe.Img} />
+               <ListGroup className="list-group-flush">
+                    <ListGroup.Item><span style={{fontWeight: 'bold'}}>Servings: </span>{eachRecipe.Servings}</ListGroup.Item>
+                    <ListGroup.Item><span style={{fontWeight: 'bold'}}>Prep Time: </span>{eachRecipe.PrepTime} minutes</ListGroup.Item>
+                    <ListGroup.Item><span style={{fontWeight: 'bold'}}>Cook Time: </span>{eachRecipe.CookTime} minutes</ListGroup.Item>
+               </ListGroup>
+               <Card.Body>
+                    <Card.Text>
+                    <span style={{fontWeight: 'bold'}}>Description: </span> {eachRecipe.Description}
+                    </Card.Text>
+               </Card.Body>
+               <Card.Footer>
+                    <Button variant="primary">Go To Recipe</Button>
+               </Card.Footer>
+          </Card>
+          </CardGroup> 
+     </Col>
   )
-
- console.log(recipes)
- const recipeCards = recipes.map((eachRecipe) => {
-  return <Col xs={12} md={4} sm={6} lg={4} className='p-2'><Card>
-  <Card.Img alt='Food' variant='bottom' src={eachRecipe.Img} />
-  <Card.Body>
-      <Card.Title>{eachRecipe.Title}</Card.Title>
-      <Card.Text style={{ height: '50px' }}>{eachRecipe.Text}</Card.Text>
-      <Button variant="primary" disabled>Go To Recipe</Button>
-  </Card.Body>
-</Card> 
-</Col>
  })
+ 
 
  return (
   <div>
        <h1>Nutritious Recipes!</h1>
-       <Container>
-         <Row>
-              {recipeCards}
-         </Row>
-       </Container>
-       <Button className='create-buttons' variant="primary" style={{float: 'right', marginRight: '7px'}} disabled>Create Recipe</Button>
+          <Row>
+               {recipes}
+          </Row>
+       <Button className='create-buttons' variant="primary" style={{float: 'right', marginRight: '7px'}}>Create Recipe</Button>
   </div>
  )       
 }
