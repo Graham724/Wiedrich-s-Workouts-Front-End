@@ -21,78 +21,119 @@ function App() {
   const recipes = [
     {
       'Title': 'Lime and Cilantro Chicken and Rice',
-      'Text': 'Fresh and easy chicken dish',
+      'Description': 'Fresh and easy chicken dish',
       'Img': 'Images/Default_Chicken_Breast.jpg',
-      'Days': 1
+      'Servings': 4,
+      'PrepTime': 15,
+      'CookTime': 45,
+      'Gluten Free': true,
+      'Vegan': false,
+      'Steps': 'text'
     },
     {
       'Title': 'Chocolate & Raspberry Protein Shake',
-      'Text': 'Super quick post workout treat',
+      'Description': 'Super quick post workout treat',
       'Img': 'Images/Default_Chicken_Breast.jpg',
-      'Days': 1
+      'Servings': 1,
+      'PrepTime': 5,
+      'CookTime': 5,
+      'Gluten Free': true,
+      'Vegan': false,
+      'Steps': 'text'
     },
     {
       'Title': 'Veggie Omelet',
-      'Text': 'A breakfast classic',
+      'Description': 'A breakfast classic',
       'Img': 'Images/Default_Chicken_Breast.jpg',
-      'Days': 1
+      'Servings': 1,
+      'PrepTime': 10,
+      'CookTime': 5,
+      'Gluten Free': true,
+      'Vegan': false,
+      'Steps': 'text'
     },
     {
       'Title': 'Terriyaki Turkey Meatballs',
-      'Text': 'For a savory yet healthy dinner',
+      'Description': 'For a savory yet healthy dinner',
       'Img': 'Images/Default_Chicken_Breast.jpg',
-      'Days': 1
+      'Servings': 4,
+      'PrepTime': 15,
+      'CookTime': 15,
+      'Gluten Free': true,
+      'Vegan': false,
+      'Steps': 'text'
     },
     {
       'Title': 'Salmon and Asparagus',
-      'Text': 'Treat yourself to the gifts of the sea!',
+      'Description': 'Treat yourself to the gifts of the sea!',
       'Img': 'Images/Default_Chicken_Breast.jpg',
-      'Days': 1
+      'Servings': 4,
+      'PrepTime': 15,
+      'CookTime': 25,
+      'Gluten Free': true,
+      'Vegan': false,
+      'Steps': 'text'
     },
     {
       'Title': 'Quinoa Salad',
-      'Text': 'Get some healthy grain in your system',
+      'Description': 'Get some healthy grain in your system',
       'Img': 'Images/Default_Chicken_Breast.jpg',
-      'Days': 1
+      'Servings': 4,
+      'PrepTime': 15,
+      'CookTime': 5,
+      'Gluten Free': true,
+      'Vegan': true,
+      'Steps': 'text'
     }
   ]
 
   const workouts = [
     {
       'Title': '10 Minute Shoulder Workout',
-      'Text': 'text',
+      'Description': 'Description',
       'Img': 'Images/Default_Workout.jpg',
-      'Days': 1
+      'Type': 'Upper Body Strength',
+      'Time': 10,
+      'Steps': 'text'
     },
     {
       'Title': '30 Minute Core Workout',
-      'Text': 'text',
+      'Description': 'Description',
       'Img': 'Images/Default_Workout.jpg',
-      'Days': 1
+      'Type': 'Core Workout',
+      'Steps': 'text'      
     },
     {
       'Title': 'Full Length Upper Body Workout',
-      'Text': 'text',
+      'Description': 'Description',
       'Img': 'Images/Default_Workout.jpg',
-      'Days': 1
+      'Type': 'Upper Body Strength',
+      'Time': 60,
+      'Steps': 'text'
     },
     {
       'Title': 'Mobility Routine',
-      'Text': 'text',
+      'Description': 'Description',
       'Img': 'Images/Default_Workout.jpg',
-      'Days': 1
+      'Type': 'Flexibilty/Recovery',
+      'Time': 15,
+      'Steps': 'text'
     },
     {
       'Title': '5 Minute Pre-Workout Stretch',
-      'Text': 'text',
+      'Description': 'Description',
       'Img': 'Images/Default_Workout.jpg',
-      'Days': 1
+      'Type': 'Flexibilty/Recovery',
+      'Time': 5,
+      'Steps': 'text'
     },
     {
       'Title': '10 Minute Yoga Exercise',
-      'Text': 'text',
+      'Description': 'Description',
       'Img': 'Images/Default_Workout.jpg',
-      'Days': 1
+      'Type': 'Yoga',
+      'Time': 10,
+      'Steps': 'text'
     }
   ]
 
