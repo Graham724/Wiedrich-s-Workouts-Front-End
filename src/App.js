@@ -8,10 +8,11 @@ import Nav from 'react-bootstrap/Nav'
 
 //Components
 import Home from './Components/Home'
-import Recipes from './Components/Recipes'
+import AllRecipes from './Components/AllRecipes'
 import Workouts from './Components/Workouts';
 import CreateRecipe from './Components/CreateRecipe';
 import CreateWorkout from './Components/CreateWorkout'
+import DisplayRecipe from './Components/DisplayRecipe';
 
 
 function App() {
@@ -56,10 +57,12 @@ function App() {
       <div className='display'>
           <Routes>
             <Route path ='/' element={<Home/>} />
-            <Route path ='/recipes' element={<Recipes/>} />
+            <Route path ='/recipes' element={<AllRecipes/>} />
             <Route path ='/workouts' element={<Workouts/>} />
             <Route path ='/createRecipe' element={<CreateRecipe/>} />
             <Route path ='/createWorkout' element={<CreateWorkout/>} />
+            <Route path ={`/getRecipe/:id`} element={<DisplayRecipe/>} />
+            <Route path ={`/deleteRecipe/:id`} element={<AllRecipes/>} />
           </Routes>
         </div>
         </Router>

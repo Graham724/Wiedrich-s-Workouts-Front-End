@@ -1,0 +1,21 @@
+ .recipe-display img {
+ width: 475px;
+ margin: 30px 10px 10px 0;
+ float: left;
+}
+
+.recipe-display p {
+ display: inline;
+} 
+
+.recipe-display-header {
+ margin: auto;
+ border-bottom: 1px solid black;
+ padding: 10px;
+}
+
+.recipe-img-desc {
+ margin-right: 20px;
+ margin-bottom: 20px;
+ border-bottom: 1px solid black;
+}

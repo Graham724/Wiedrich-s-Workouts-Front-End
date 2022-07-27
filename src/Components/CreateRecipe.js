@@ -40,7 +40,6 @@ export default function CreateRecipe () {
       <Form.Group className="mb-2" controlId="formGlutenFree">
         <Form.Check type="checkbox" label="Gluten Free" />
       </Form.Group>
-          
           <Button variant="primary" type="submit">
             Add Recipe
           </Button>
