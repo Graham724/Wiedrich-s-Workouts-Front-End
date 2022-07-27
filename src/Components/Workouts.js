@@ -1,5 +1,7 @@
+//React features & hooks
 import { useEffect, useState } from 'react'
 
+//React-Bootstrap components
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
