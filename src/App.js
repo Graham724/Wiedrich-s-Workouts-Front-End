@@ -87,56 +87,6 @@ function App() {
     }
   ]
 
-  const workouts = [
-    {
-      'Title': '10 Minute Shoulder Workout',
-      'Description': 'Description',
-      'Img': 'Images/Default_Workout.jpg',
-      'Type': 'Upper Body Strength',
-      'Time': 10,
-      'Steps': 'text'
-    },
-    {
-      'Title': '30 Minute Core Workout',
-      'Description': 'Description',
-      'Img': 'Images/Default_Workout.jpg',
-      'Type': 'Core Workout',
-      'Steps': 'text'      
-    },
-    {
-      'Title': 'Full Length Upper Body Workout',
-      'Description': 'Description',
-      'Img': 'Images/Default_Workout.jpg',
-      'Type': 'Upper Body Strength',
-      'Time': 60,
-      'Steps': 'text'
-    },
-    {
-      'Title': 'Mobility Routine',
-      'Description': 'Description',
-      'Img': 'Images/Default_Workout.jpg',
-      'Type': 'Flexibilty/Recovery',
-      'Time': 15,
-      'Steps': 'text'
-    },
-    {
-      'Title': '5 Minute Pre-Workout Stretch',
-      'Description': 'Description',
-      'Img': 'Images/Default_Workout.jpg',
-      'Type': 'Flexibilty/Recovery',
-      'Time': 5,
-      'Steps': 'text'
-    },
-    {
-      'Title': '10 Minute Yoga Exercise',
-      'Description': 'Description',
-      'Img': 'Images/Default_Workout.jpg',
-      'Type': 'Yoga',
-      'Time': 10,
-      'Steps': 'text'
-    }
-  ]
-
   return (
     <div className="App">
       <Router>
@@ -179,7 +129,7 @@ function App() {
           <Routes>
             <Route path ='/' element={<Home/>} />
             <Route path ='/recipes' element={<Recipes recipes={recipes}/>} />
-            <Route path ='/workouts' element={<Workouts workouts={workouts}/>} />
+            <Route path ='/workouts' element={<Workouts/>} />
             <Route path ='/createRecipe' element={<CreateRecipe/>} />
             <Route path ='/createWorkout' element={<CreateWorkout/>} />
           </Routes>
