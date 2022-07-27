@@ -64,9 +64,9 @@ const [recipes, setRecipes] = useState([])
           <Row>
                {display}
           </Row>
-     <Link to='/createRecipe'>   
-       <Button className='create-buttons' variant="success" style={{float: 'right', marginRight: '7px'}}>Create Recipe</Button>
-     </Link>
+          <Link to='/createRecipe'>   
+               <Button className='create-buttons' variant="success" style={{float: 'right', marginRight: '7px'}}>Create Recipe</Button>
+          </Link>
   </div>
  )       
 }

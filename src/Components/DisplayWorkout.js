@@ -11,11 +11,11 @@ import Col from 'react-bootstrap/Col';
 //Other styling
 import '../recipeDisplay.css'
 
-export default function DisplayRecipe () {
+export default function DisplayWorkout () {
  const {id} = useParams()
  console.log(id)
- const recipeID = id
- const [recipe, setRecipe] = useState([])
+ const workoutID = id
+ const [workout, setWorkout] = useState([])
 
  // function handleDelete(recipeID) {
  //  const newRecipe = recipe.filter((item) => item.id !== id);
@@ -26,38 +26,32 @@ export default function DisplayRecipe () {
      useEffect(() => {
           const fetchData = async () => {
                console.log(process.env)
-               const URL = `${process.env.REACT_APP_BACKEND_URL}/api/recipes/${recipeID}`
+               const URL = `${process.env.REACT_APP_BACKEND_URL}/api/workouts/${workoutID}`
                console.log(URL)
                const response = await fetch(URL)
                const data = await response.json()
-               setRecipe([data])
+               setWorkout([data])
           }
           fetchData()
      }, [])
 
- const display = recipe && recipe.map((eachRecipe) => {
+ const display = workout && workout.map((eachWorkout) => {
       return (
        <Container className='recipe-display'>
          <Row>
           <Col className='recipe-img-desc'>
-            <img alt='Food' variant='bottom' src={eachRecipe.imgURL}/>
-            <p>{eachRecipe.desc}</p>
+            <img alt='Food' variant='bottom' src={eachWorkout.imgURL}/>
+            <p>{eachWorkout.desc}</p>
           </Col>
           <Col>
           <header className='recipe-display-header'>
-            <h1>{eachRecipe.title}</h1>
+            <h1>{eachWorkout.title}</h1>
             <p>
-             <span style={{fontWeight: 'bold'}}>Servings: </span>{eachRecipe.serving} </p>
+             <span style={{fontWeight: 'bold'}}>Estimated Time: </span>{eachWorkout.time} minutes </p>
             <p>
-             <span style={{fontWeight: 'bold'}}>Prep Time: </span>{eachRecipe.prepTime} minutes </p>
-            <p>
-             <span style={{fontWeight: 'bold'}}>Cook Time: </span>{eachRecipe.cookTime} minutes </p>
-             <p>
-             {/* <span style={{fontWeight: 'bold'}}>Gluten Free: </span>{eachRecipe.glutenFree}
-             <span style={{fontWeight: 'bold'}}>Vegan: </span>{eachRecipe.glutenFree} */}
-             </p>
+             <span style={{fontWeight: 'bold'}}>Type: </span>{eachWorkout.type} </p>
            </header>
-           <p>{eachRecipe.steps}</p>
+           <p>{eachWorkout.steps}</p>
           </Col>
          </Row>
        </Container>
@@ -69,19 +63,19 @@ export default function DisplayRecipe () {
         <Row>
            {display}
         </Row>
-        <Link to={`/deleteRecipe/${recipeID}`}>
+        <Link to={`/deleteRecipe/${workoutID}`}>
           <Button disabled className='delete-buttons' variant="danger" style={{float: 'left', marginRight: '7px'}}>
-            Delete Recipe
+           Delete Workout
            </Button>
         </Link>
            <Button disabled className='edit-buttons' variant="warning" style={{float: 'left', marginRight: '7px'}}>
-             Edit Recipe
-            </Button>
-           <Link to='/recipes'>
+            Edit Workouts
+           </Button>
+        <Link to='/workouts'>
             <Button className='back-buttons' variant="info" style={{float: 'left'}}>
-              Back to Recipes
+             Back to Workouts
              </Button>
-           </Link>
+         </Link>
       </div>
      )    
 }

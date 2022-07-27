@@ -1,5 +1,6 @@
 //React features & hooks
 import { useEffect, useState } from 'react'
+import { BrowserRouter as Router, Link, Route, Routes, useParams } from 'react-router-dom'
 
 //React-Bootstrap components
 import Card from 'react-bootstrap/Card'
@@ -11,7 +12,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 
 
-export default function Workouts(props) {
+export default function AllWorkouts() {
      const [workouts, setWorkouts] = useState([])
      
      useEffect(() => {
@@ -46,7 +47,9 @@ export default function Workouts(props) {
                             </Card.Text>
                        </Card.Body>
                        <Card.Footer>
+                       <Link to={`/getWorkout/${eachWorkout._id}`}>
                             <Button variant="primary">Go To Program</Button>
+                       </Link>
                        </Card.Footer>
                   </Card>
                   </CardGroup> 
@@ -60,7 +63,9 @@ export default function Workouts(props) {
          <Row>
               {display}
          </Row>
-       <Button className='create-buttons' variant="primary" style={{float: 'right', marginRight: '7px'}}>Create Workout</Button>
+     <Link to='/createWorkout'>
+       <Button className='create-buttons' variant="success" style={{float: 'right', marginRight: '7px'}}>Create Workout</Button>
+     </Link>
   </div>
  )       
 }
