@@ -30,6 +30,7 @@ export default function CreateWorkout () {
               <option>Flexibilty/Recovery</option>
               <option>Yoga</option>
               <option>Meditation</option>
+              <option>Other</option>
             </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formsteps">
