@@ -22,11 +22,4 @@ export default function Home () {
       </div>
      </div>
  )
-
 }
-
-{/* 
-         <h1>Find, Create, and Collaborate on your favorite wellness recipes and fitness routines!</h1>
-         
-         <h1>Fitness is more fun with everyone!</h1>
-*/}

@@ -1,5 +1,6 @@
 //React features & hooks
 import { useEffect, useState } from 'react'
+import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom'
 
 //React-Bootstrap components
 import Card from 'react-bootstrap/Card'
@@ -9,8 +10,11 @@ import Col from 'react-bootstrap/Col'
 import CardGroup from 'react-bootstrap/CardGroup';
 import ListGroup from 'react-bootstrap/ListGroup';
 
+//Other Styling
+import '../Home.css'
 
-export default function Recipes(props) {
+
+export default function AllRecipes() {
 const [recipes, setRecipes] = useState([])
      
      useEffect(() => {
@@ -46,7 +50,9 @@ const [recipes, setRecipes] = useState([])
                     </Card.Text>
                </Card.Body>
                <Card.Footer>
-                    <Button variant="primary">Go To Recipe</Button>
+                    <Link to={`/getRecipe/${eachRecipe._id}`}>
+                         <Button variant="primary">Go To Recipe</Button>
+                    </Link>
                </Card.Footer>
           </Card>
           </CardGroup> 
@@ -61,7 +67,9 @@ const [recipes, setRecipes] = useState([])
           <Row>
                {display}
           </Row>
-       <Button className='create-buttons' variant="primary" style={{float: 'right', marginRight: '7px'}}>Create Recipe</Button>
+          <Link to='/createRecipe'>   
+               <Button className='create-buttons' variant="success" style={{float: 'right', marginRight: '-5px', marginTop: '50px'}}>Create Recipe</Button>
+          </Link>
   </div>
  )       
 }
