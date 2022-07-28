@@ -34,7 +34,7 @@ export default function CreateWorkout () {
             </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formsteps">
-            <Form.Label>Steps</Form.Label>
+            <Form.Label>Program</Form.Label>
             <Form.Control type="steps" required="required" as="textarea" rows={3} placeholder="Enter Steps" />
           </Form.Group>   
           <Button variant="primary" type="submit">

@@ -31,7 +31,7 @@ export default function CreateRecipe () {
             <Form.Control type="number" placeholder="Enter Estimated Cook Time" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formSteps">
-            <Form.Label>Steps</Form.Label>
+            <Form.Label>Ingredients and Steps</Form.Label>
             <Form.Control type="steps" required="required" as="textarea" rows={3} placeholder="Enter Steps" />
           </Form.Group>
           <Form.Group className="mb-2" controlId="formVeganCheckbox">

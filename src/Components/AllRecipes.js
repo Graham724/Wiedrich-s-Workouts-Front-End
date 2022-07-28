@@ -10,6 +10,9 @@ import Col from 'react-bootstrap/Col'
 import CardGroup from 'react-bootstrap/CardGroup';
 import ListGroup from 'react-bootstrap/ListGroup';
 
+//Other Styling
+import '../Home.css'
+
 
 export default function AllRecipes() {
 const [recipes, setRecipes] = useState([])
@@ -65,7 +68,7 @@ const [recipes, setRecipes] = useState([])
                {display}
           </Row>
           <Link to='/createRecipe'>   
-               <Button className='create-buttons' variant="success" style={{float: 'right', marginRight: '7px'}}>Create Recipe</Button>
+               <Button className='create-buttons' variant="success" style={{float: 'right', marginRight: '-5px', marginTop: '50px'}}>Create Recipe</Button>
           </Link>
   </div>
  )       

@@ -64,7 +64,7 @@ export default function AllWorkouts() {
               {display}
          </Row>
      <Link to='/createWorkout'>
-       <Button className='create-buttons' variant="success" style={{float: 'right', marginRight: '7px'}}>Create Workout</Button>
+       <Button className='create-buttons' variant="success" style={{float: 'right', marginRight: '-5px', marginTop: '50px'}}>Create Workout</Button>
      </Link>
   </div>
  )       
