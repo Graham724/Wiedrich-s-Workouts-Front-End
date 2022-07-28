@@ -106,6 +106,19 @@ export default function CreateWorkout () {
               as="textarea" 
               rows={3} 
               placeholder="Enter Steps" />
+            <Form.Select >
+              <option>Upper Body Strength</option>
+              <option>Lower Body Strength</option>
+              <option>Core Workout</option>
+              <option>Flexibilty/Recovery</option>
+              <option>Yoga</option>
+              <option>Meditation</option>
+              <option>Other</option>
+            </Form.Select>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formsteps">
+            <Form.Label>Program</Form.Label>
+            <Form.Control type="steps" required="required" as="textarea" rows={3} placeholder="Enter Steps" />
           </Form.Group>   
           <Button variant="primary" type="submit">
             Add Workout

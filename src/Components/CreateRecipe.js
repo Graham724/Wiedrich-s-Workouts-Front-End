@@ -114,6 +114,8 @@ export default function CreateRecipe () {
             as="textarea" 
             rows={3} 
             placeholder="Enter Steps" />
+            <Form.Label>Ingredients and Steps</Form.Label>
+            <Form.Control type="steps" required="required" as="textarea" rows={3} placeholder="Enter Steps" />
           </Form.Group>
           <Form.Group className="mb-2" controlId="formVeganCheckbox">
         <Form.Check 
@@ -129,7 +131,6 @@ export default function CreateRecipe () {
         value={glutenFree}
         label="Gluten Free" />
       </Form.Group>
-          
           <Button variant="primary" type="submit">
             Add Recipe
           </Button>
