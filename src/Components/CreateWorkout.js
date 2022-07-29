@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -14,6 +15,7 @@ export default function CreateWorkout () {
   const [steps, setSteps] = useState('')
 
   const [error, setError] = useState('')
+  const navigate = useNavigate()
 
   const handleSubmit= async (e) => {
     e.preventDefault()
@@ -39,9 +41,9 @@ export default function CreateWorkout () {
       setDesc('')
       setEstimatedTime('')
       setWorkoutType('')
-      setSteps('')
-      
+      setSteps('') 
       console.log('new workout added:', json)
+      navigate('/workouts')
     }
   }
 
@@ -84,7 +86,7 @@ export default function CreateWorkout () {
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Workout Type</Form.Label>
-            <Form.Select classname="custom-select" onChange={(e) =>{
+            <Form.Select className="custom-select" onChange={(e) =>{
               const selectedWorkoutType = e.target.value;
               setWorkoutType(selectedWorkoutType)
               }}>
@@ -97,7 +99,7 @@ export default function CreateWorkout () {
             </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formsteps">
-            <Form.Label>Steps</Form.Label>
+            <Form.Label>Program</Form.Label>
             <Form.Control 
               type="text" 
               required="required" 
@@ -106,20 +108,7 @@ export default function CreateWorkout () {
               as="textarea" 
               rows={3} 
               placeholder="Enter Steps" />
-            <Form.Select >
-              <option>Upper Body Strength</option>
-              <option>Lower Body Strength</option>
-              <option>Core Workout</option>
-              <option>Flexibilty/Recovery</option>
-              <option>Yoga</option>
-              <option>Meditation</option>
-              <option>Other</option>
-            </Form.Select>
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="formsteps">
-            <Form.Label>Program</Form.Label>
-            <Form.Control type="steps" required="required" as="textarea" rows={3} placeholder="Enter Steps" />
-          </Form.Group>   
+          </Form.Group>  
           <Button variant="primary" type="submit">
             Add Workout
           </Button>
