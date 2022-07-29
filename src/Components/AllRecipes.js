@@ -9,6 +9,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import CardGroup from 'react-bootstrap/CardGroup';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Container from 'react-bootstrap/Container'
 
 //Other Styling
 import '../Home.css'
@@ -32,19 +33,19 @@ const [recipes, setRecipes] = useState([])
      <Col xs={12} md={4} sm={6} lg={4} className='p-2' key={eachRecipe._id}>
           <CardGroup>
           <Card>
-               <Card.Header>
+               <Card.Header style={{height: '75px'}}>
                     <Card.Title>
                          {eachRecipe.title}
                     </Card.Title>
                </Card.Header>
-               <Card.Img alt='Food' variant='bottom' src={eachRecipe.imgURL} />
+               <Card.Img style={{height: '300px'}} alt='Food' variant='bottom' src={eachRecipe.imgURL} />
                <ListGroup className="list-group-flush">
                     <ListGroup.Item><span style={{fontWeight: 'bold'}}>Servings: </span>{eachRecipe.serving}</ListGroup.Item>
                     <ListGroup.Item><span style={{fontWeight: 'bold'}}>Prep Time: </span>{eachRecipe.prepTime} minutes</ListGroup.Item>
                     <ListGroup.Item><span style={{fontWeight: 'bold'}}>Cook Time: </span>{eachRecipe.cookTime} minutes</ListGroup.Item>
                </ListGroup>
                <Card.Body>
-                    <Card.Text>
+                    <Card.Text style={{height: '60px'}}>
                     <span style={{fontWeight: 'bold'}}>Description: </span> {eachRecipe.desc}
                     </Card.Text>
                </Card.Body>
@@ -63,9 +64,11 @@ const [recipes, setRecipes] = useState([])
  return (
   <div>
        <h1>Nutritious Recipes!</h1>
+       <Container>
           <Row>
                {display}
           </Row>
+     </Container>
           <Link to='/createRecipe'>   
                <Button className='create-buttons' variant="success" style={{float: 'right', marginRight: '-5px', marginTop: '50px'}}>Create Recipe</Button>
           </Link>
