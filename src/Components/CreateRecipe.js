@@ -64,7 +64,7 @@ export default function CreateRecipe () {
             onChange={(e) => setTitle(e.target.value)}
             value={title}
             placeholder="Enter Recipe Name" 
-            maxLength={50}/>
+            maxLength={40}/>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formImage">
             <Form.Label>Image</Form.Label>

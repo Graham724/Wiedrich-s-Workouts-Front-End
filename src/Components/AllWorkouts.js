@@ -30,18 +30,18 @@ export default function AllWorkouts() {
              <Col xs={12} md={4} sm={6} lg={4} className='p-2' key={eachWorkout._id}>
                   <CardGroup>
                   <Card>
-                       <Card.Header>
+                       <Card.Header style={{height: '75px'}}>
                             <Card.Title>
                                  {eachWorkout.title}
                             </Card.Title>
                        </Card.Header>
-                       <Card.Img alt='Workout' variant='bottom' src={eachWorkout.imgURL} />
+                       <Card.Img alt='Workout' variant='bottom' src={eachWorkout.imgURL} style={{height: '300px'}} />
                        <ListGroup className="list-group-flush">
                             <ListGroup.Item><span style={{fontWeight: 'bold'}}>Type: </span>{eachWorkout.type}</ListGroup.Item>
                             <ListGroup.Item><span style={{fontWeight: 'bold'}}>Estimated Time: </span>{eachWorkout.time} minutes</ListGroup.Item>
                        </ListGroup>
                        <Card.Body>
-                            <Card.Text>
+                            <Card.Text style={{height: '60px'}}>
                             <span style={{fontWeight: 'bold'}}>Description: </span> {eachWorkout.desc}
                             </Card.Text>
                        </Card.Body>

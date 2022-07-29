@@ -1,6 +1,6 @@
 //React features & hooks
 import { useEffect, useState } from 'react'
-import { BrowserRouter as Router, Link, Route, Routes, useParams } from 'react-router-dom'
+import { useNavigate, BrowserRouter as Router, Link, Route, Routes, useParams } from 'react-router-dom'
 
 //React-Bootstrap components
 import Container from 'react-bootstrap/Container';
@@ -16,12 +16,15 @@ export default function DisplayWorkout () {
  console.log(id)
  const workoutID = id
  const [workout, setWorkout] = useState([])
+ const navigate = useNavigate()
 
- // function handleDelete(recipeID) {
- //  const newRecipe = recipe.filter((item) => item.id !== id);
-
- //  setRecipe(newRecipe)
- // }
+ let handleDelete = async () => {
+  const URL = `${process.env.REACT_APP_BACKEND_URL}/api/workouts/${workoutID}`
+  await fetch(URL, {
+   method: "DELETE",
+  });
+  navigate('/workouts')
+ };
      
      useEffect(() => {
           const fetchData = async () => {
@@ -63,19 +66,11 @@ export default function DisplayWorkout () {
         <Row>
            {display}
         </Row>
-        <Link to={`/deleteRecipe/${workoutID}`}>
-          <Button disabled className='delete-buttons' variant="danger" style={{float: 'left', marginRight: '7px'}}>
-           Delete Workout
-           </Button>
-        </Link>
-           <Button disabled className='edit-buttons' variant="warning" style={{float: 'left', marginRight: '7px'}}>
-            Edit Workouts
-           </Button>
+          <Button onClick={handleDelete} className='delete-buttons' variant="danger" style={{float: 'left', marginRight: '7px'}}>Delete Workout</Button>
+          <Button disabled className='edit-buttons' variant="warning" style={{float: 'left', marginRight: '7px'}}>Edit Workouts</Button>
         <Link to='/workouts'>
-            <Button className='back-buttons' variant="info" style={{float: 'left'}}>
-             Back to Workouts
-             </Button>
-         </Link>
+          <Button className='back-buttons' variant="info" style={{float: 'left'}}>Back to Workouts</Button>
+        </Link>
       </div>
      )    
 }
