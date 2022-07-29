@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -8,16 +9,17 @@ import '../form.css'
 export default function CreateRecipe () {
 
   const [title, setTitle] = useState('')
-  const [imgURL, setimgURL] = useState('')
+  const [imgURL, setImgURL] = useState('')
   const [desc, setDesc] = useState('')
   const [serving, setServing] = useState('')
   const [prepTime, setPrepTime] = useState('')
   const [cookTime, setCookTime] = useState('')
   const [steps, setSteps] = useState('')
-  const [vegan, setVegan] = useState('')
-  const [glutenFree, setGlutenFree] = useState('')
+  const [vegan, setVegan] = useState(false)
+  const [glutenFree, setGlutenFree] = useState(false)
 
   const [error, setError] = useState('')
+  const navigate = useNavigate()
 
   const handleSubmit= async (e) => {
     e.preventDefault()
@@ -47,7 +49,8 @@ export default function CreateRecipe () {
       setSteps('')
       setVegan('')
       setGlutenFree('')
-      console.log('new recipe added:', json)
+      console.log('new recipe added:', json);
+      navigate('/recipes')
     }
   }
 
@@ -67,7 +70,7 @@ export default function CreateRecipe () {
             <Form.Label>Image</Form.Label>
             <Form.Control 
             type="text" 
-            onChange={(e) => setimgURL(e.target.value)}
+            onChange={(e) => setImgURL(e.target.value)}
             value={imgURL}
             placeholder="Enter Image URL" />
           </Form.Group>
@@ -105,7 +108,7 @@ export default function CreateRecipe () {
             placeholder="Enter Estimated Cook Time" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formSteps">
-            <Form.Label>Steps</Form.Label>
+            <Form.Label>Ingredients and Steps</Form.Label>
             <Form.Control 
             type="steps" 
             required="required"
@@ -114,20 +117,18 @@ export default function CreateRecipe () {
             as="textarea" 
             rows={3} 
             placeholder="Enter Steps" />
-            <Form.Label>Ingredients and Steps</Form.Label>
-            <Form.Control type="steps" required="required" as="textarea" rows={3} placeholder="Enter Steps" />
           </Form.Group>
           <Form.Group className="mb-2" controlId="formVeganCheckbox">
         <Form.Check 
         type="checkbox"
-        onChange={(e) => setVegan(e.target.value)}
+        onChange={(e) => setVegan(!vegan)}
         value={vegan} 
         label="Vegan" />
       </Form.Group>
       <Form.Group className="mb-2" controlId="formGlutenFree">
         <Form.Check 
         type="checkbox" 
-        onChange={(e) => setGlutenFree(e.target.value)}
+        onChange={(e) => setGlutenFree(!glutenFree)}
         value={glutenFree}
         label="Gluten Free" />
       </Form.Group>

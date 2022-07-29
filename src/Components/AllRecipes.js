@@ -19,7 +19,6 @@ const [recipes, setRecipes] = useState([])
      
      useEffect(() => {
           const fetchData = async () => {
-               console.log(process.env)
                const URL = `${process.env.REACT_APP_BACKEND_URL}/api/recipes`
                const response = await fetch(URL)
                const data = await response.json()
@@ -30,7 +29,7 @@ const [recipes, setRecipes] = useState([])
 
  const display = recipes && recipes.map((eachRecipe) => {
   return (
-     <Col xs={12} md={4} sm={6} lg={4} className='p-2'>
+     <Col xs={12} md={4} sm={6} lg={4} className='p-2' key={eachRecipe._id}>
           <CardGroup>
           <Card>
                <Card.Header>

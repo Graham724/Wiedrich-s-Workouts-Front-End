@@ -17,7 +17,6 @@ export default function AllWorkouts() {
      
      useEffect(() => {
           const fetchData = async () => {
-               console.log(process.env)
                const URL = `${process.env.REACT_APP_BACKEND_URL}/api/workouts`
                const response = await fetch(URL)
                const data = await response.json()
@@ -28,7 +27,7 @@ export default function AllWorkouts() {
 
      const display = workouts && workouts.map((eachWorkout) => {
           return (
-             <Col xs={12} md={4} sm={6} lg={4} className='p-2'>
+             <Col xs={12} md={4} sm={6} lg={4} className='p-2' key={eachWorkout._id}>
                   <CardGroup>
                   <Card>
                        <Card.Header>
