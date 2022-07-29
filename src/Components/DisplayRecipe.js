@@ -17,11 +17,12 @@ export default function DisplayRecipe () {
  const recipeID = id
  const [recipe, setRecipe] = useState([])
 
- // function handleDelete(recipeID) {
- //  const newRecipe = recipe.filter((item) => item.id !== id);
+ function handleDelete(e) {
+  e.preventDefault()
+  const newRecipe = recipe.filter((item) => item.id !== id);
 
- //  setRecipe(newRecipe)
- // }
+  setRecipe(newRecipe)
+ }
      
      useEffect(() => {
           const fetchData = async () => {
@@ -70,7 +71,7 @@ export default function DisplayRecipe () {
            {display}
         </Row>
         <Link to={`/deleteRecipe/${recipeID}`}>
-          <Button disabled className='delete-buttons' variant="danger" style={{float: 'left', marginRight: '7px'}}>
+          <Button disabled onClick={handleDelete} className='delete-buttons' variant="danger" style={{float: 'left', marginRight: '7px'}}>
             Delete Recipe
            </Button>
         </Link>

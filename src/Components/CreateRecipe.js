@@ -9,7 +9,7 @@ import '../form.css'
 export default function CreateRecipe () {
 
   const [title, setTitle] = useState('')
-  const [imgURL, setImgURL] = useState('')
+  const [imgURL, setImgURL] = useState()
   const [desc, setDesc] = useState('')
   const [serving, setServing] = useState('')
   const [prepTime, setPrepTime] = useState('')
