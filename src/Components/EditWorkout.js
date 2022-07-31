@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import '../form.css'
 
 export default function EditWorkout () {
+  const {id} = useParams()
 
   const [title, setTitle] = useState('')
   const [imgURL, setImgURL] = useState('')
@@ -17,19 +18,37 @@ export default function EditWorkout () {
   const [error, setError] = useState('')
   const navigate = useNavigate()
 
+  useEffect(() => {
+    const fetchData = async () => {
+         console.log(process.env)
+         const URL = `${process.env.REACT_APP_BACKEND_URL}/api/workouts/${id}`
+         console.log(URL)
+         const response = await fetch(URL)
+         const data = await response.json()
+         setTitle(data.title)
+         setImgURL(data.imgURL)
+         setDesc(data.desc)
+         setEstimatedTime(data.estimatedTime)
+         setWorkoutType(data.workoutType)
+         setSteps(data.steps)
+    }
+    fetchData()
+}, [])
+
+
   const handleSubmit= async (e) => {
     e.preventDefault()
 
     const workout = {title, imgURL, desc, estimatedTime, workoutType, steps}
-    const URL = `${process.env.REACT_APP_BACKEND_URL}/api/workouts`
+    const URL = `${process.env.REACT_APP_BACKEND_URL}/api/workouts/${id}`
     const response = await fetch(URL, {
-      method: 'POST',
+      method: 'PATCH',
       body: JSON.stringify(workout),
       headers: {
         'Content-Type': 'application/json'
       }
     })
-    const json = await response.json
+    const data = await response.json()
 
     if (!response.ok) {
       setError(json.error)
@@ -42,7 +61,7 @@ export default function EditWorkout () {
       setEstimatedTime('')
       setWorkoutType('')
       setSteps('') 
-      console.log('new workout added:', json)
+      console.log('new workout edited:', data)
       navigate('/workouts')
     }
   }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -7,6 +7,7 @@ import '../form.css'
 
 
 export default function EditRecipe () {
+  const {id} = useParams()
 
   const [title, setTitle] = useState('')
   const [imgURL, setImgURL] = useState('')
@@ -21,22 +22,44 @@ export default function EditRecipe () {
   const [error, setError] = useState('')
   const navigate = useNavigate()
 
+  useEffect(() => {
+    const fetchData = async () => {
+         console.log(process.env)
+         const URL = `${process.env.REACT_APP_BACKEND_URL}/api/recipes/${id}`
+         console.log(URL)
+         const response = await fetch(URL)
+         const data = await response.json()
+         setTitle(data.title)
+         setImgURL(data.imgURL)
+         setDesc(data.desc)
+         setServing(data.serving)
+         setPrepTime(data.prepTime)
+         setCookTime(data.cookTime)
+         setSteps(data.steps)
+         setVegan(data.vegan)
+         setGlutenFree(data.glutenFree)
+    }
+    fetchData()
+}, [])
+
+
   const handleSubmit= async (e) => {
     e.preventDefault()
 
     const recipe = {title, imgURL, desc, serving, prepTime, cookTime, steps, vegan, glutenFree}
-    const URL = `${process.env.REACT_APP_BACKEND_URL}/api/recipes`
+    const URL = `${process.env.REACT_APP_BACKEND_URL}/api/recipes/${id}`
     const response = await fetch(URL, {
-      method: 'POST',
+      method: 'PATCH',
       body: JSON.stringify(recipe),
       headers: {
         'Content-Type': 'application/json'
       }
     })
-    const json = await response.json
+    const data = await response.json()
 
     if (!response.ok) {
       setError(json.error)
+      console.log(data)
     }
     if (response.ok) {
       setError(null)
@@ -49,7 +72,7 @@ export default function EditRecipe () {
       setSteps('')
       setVegan('')
       setGlutenFree('')
-      console.log('new recipe added:', json);
+      console.log('new recipe edited:', data);
       navigate('/recipes')
     }
   }

@@ -29,7 +29,7 @@ export default function CreateWorkout () {
         'Content-Type': 'application/json'
       }
     })
-    const json = await response.json
+    const data = await response.json()
 
     if (!response.ok) {
       setError(json.error)
@@ -42,7 +42,7 @@ export default function CreateWorkout () {
       setEstimatedTime('')
       setWorkoutType('')
       setSteps('') 
-      console.log('new workout added:', json)
+      console.log('new workout added:', data)
       navigate('/workouts')
     }
   }

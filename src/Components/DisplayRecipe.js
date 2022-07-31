@@ -14,7 +14,6 @@ import '../recipeDisplay.css'
 export default function DisplayRecipe () {
  const {id} = useParams()
  console.log(id)
- const recipeID = id
  const [recipe, setRecipe] = useState([])
 
  // function handleDelete(recipeID) {
@@ -26,7 +25,7 @@ export default function DisplayRecipe () {
      useEffect(() => {
           const fetchData = async () => {
                console.log(process.env)
-               const URL = `${process.env.REACT_APP_BACKEND_URL}/api/recipes/${recipeID}`
+               const URL = `${process.env.REACT_APP_BACKEND_URL}/api/recipes/${id}`
                console.log(URL)
                const response = await fetch(URL)
                const data = await response.json()
@@ -69,14 +68,16 @@ export default function DisplayRecipe () {
         <Row>
            {display}
         </Row>
-        <Link to={`/deleteRecipe/${recipeID}`}>
+        <Link to={`/deleteRecipe/${id}`}>
           <Button disabled className='delete-buttons' variant="danger" style={{float: 'left', marginRight: '7px'}}>
             Delete Recipe
            </Button>
         </Link>
-           <Button disabled className='edit-buttons' variant="warning" style={{float: 'left', marginRight: '7px'}}>
+        <Link to={`/updateRecipe/${id}`}>
+           <Button className='edit-buttons' variant="warning" style={{float: 'left', marginRight: '7px'}}>
              Edit Recipe
             </Button>
+        </Link>
            <Link to='/recipes'>
             <Button className='back-buttons' variant="info" style={{float: 'left'}}>
               Back to Recipes

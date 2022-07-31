@@ -33,7 +33,7 @@ export default function CreateRecipe () {
         'Content-Type': 'application/json'
       }
     })
-    const json = await response.json
+    const data = await response.json()
 
     if (!response.ok) {
       setError(json.error)
@@ -49,7 +49,7 @@ export default function CreateRecipe () {
       setSteps('')
       setVegan('')
       setGlutenFree('')
-      console.log('new recipe added:', json);
+      console.log('new recipe added:', data);
       navigate('/recipes')
     }
   }
