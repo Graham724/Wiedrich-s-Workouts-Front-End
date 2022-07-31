@@ -16,8 +16,6 @@ export default function EditRecipe () {
   const [prepTime, setPrepTime] = useState('')
   const [cookTime, setCookTime] = useState('')
   const [steps, setSteps] = useState('')
-  const [vegan, setVegan] = useState(false)
-  const [glutenFree, setGlutenFree] = useState(false)
 
   const [error, setError] = useState('')
   const navigate = useNavigate()
@@ -36,8 +34,6 @@ export default function EditRecipe () {
          setPrepTime(data.prepTime)
          setCookTime(data.cookTime)
          setSteps(data.steps)
-         setVegan(data.vegan)
-         setGlutenFree(data.glutenFree)
     }
     fetchData()
 }, [])
@@ -46,7 +42,7 @@ export default function EditRecipe () {
   const handleSubmit= async (e) => {
     e.preventDefault()
 
-    const recipe = {title, imgURL, desc, serving, prepTime, cookTime, steps, vegan, glutenFree}
+    const recipe = {title, imgURL, desc, serving, prepTime, cookTime, steps}
     const URL = `${process.env.REACT_APP_BACKEND_URL}/api/recipes/${id}`
     const response = await fetch(URL, {
       method: 'PATCH',
@@ -141,20 +137,6 @@ export default function EditRecipe () {
             rows={3} 
             placeholder="Enter Steps" />
           </Form.Group>
-          <Form.Group className="mb-2" controlId="formVeganCheckbox">
-        <Form.Check 
-        type="checkbox"
-        onChange={(e) => setVegan(!vegan)}
-        value={vegan} 
-        label="Vegan" />
-      </Form.Group>
-      <Form.Group className="mb-2" controlId="formGlutenFree">
-        <Form.Check 
-        type="checkbox" 
-        onChange={(e) => setGlutenFree(!glutenFree)}
-        value={glutenFree}
-        label="Gluten Free" />
-      </Form.Group>
           <Button variant="primary" type="submit">
             Edit Recipe
           </Button>
