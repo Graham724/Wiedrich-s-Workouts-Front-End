@@ -54,7 +54,7 @@ export default function EditRecipe () {
     const data = await response.json()
 
     if (!response.ok) {
-      setError(json.error)
+      setError(data.error)
       console.log(data)
     }
     if (response.ok) {
@@ -66,8 +66,6 @@ export default function EditRecipe () {
       setPrepTime('')
       setCookTime('')
       setSteps('')
-      setVegan('')
-      setGlutenFree('')
       console.log('new recipe edited:', data);
       navigate('/recipes')
     }
