@@ -32,7 +32,7 @@ export default function CreateWorkout () {
     const data = await response.json()
 
     if (!response.ok) {
-      setError(json.error)
+      setError(data.error)
     }
     if (response.ok) {
       setError(null)

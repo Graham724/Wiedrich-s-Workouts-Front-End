@@ -51,7 +51,7 @@ export default function EditWorkout () {
     const data = await response.json()
 
     if (!response.ok) {
-      setError(json.error)
+      setError(data.error)
     }
     if (response.ok) {
       setError(null)
