@@ -1,14 +1,15 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import '../form.css'
 
-export default function CreateWorkout () {
+export default function EditWorkout () {
+  const {id} = useParams()
 
   const [title, setTitle] = useState('')
-  const [imgURL, setImgURL] = useState()
+  const [imgURL, setImgURL] = useState('')
   const [desc, setDesc] = useState('')
   const [estimatedTime, setEstimatedTime] = useState('')
   const [workoutType, setWorkoutType] = useState('')
@@ -17,13 +18,31 @@ export default function CreateWorkout () {
   const [error, setError] = useState('')
   const navigate = useNavigate()
 
+  useEffect(() => {
+    const fetchData = async () => {
+         console.log(process.env)
+         const URL = `${process.env.REACT_APP_BACKEND_URL}/api/workouts/${id}`
+         console.log(URL)
+         const response = await fetch(URL)
+         const data = await response.json()
+         setTitle(data.title)
+         setImgURL(data.imgURL)
+         setDesc(data.desc)
+         setEstimatedTime(data.estimatedTime)
+         setWorkoutType(data.workoutType)
+         setSteps(data.steps)
+    }
+    fetchData()
+}, [])
+
+
   const handleSubmit= async (e) => {
     e.preventDefault()
 
     const workout = {title, imgURL, desc, estimatedTime, workoutType, steps}
-    const URL = `${process.env.REACT_APP_BACKEND_URL}/api/workouts`
+    const URL = `${process.env.REACT_APP_BACKEND_URL}/api/workouts/${id}`
     const response = await fetch(URL, {
-      method: 'POST',
+      method: 'PATCH',
       body: JSON.stringify(workout),
       headers: {
         'Content-Type': 'application/json'
@@ -42,7 +61,7 @@ export default function CreateWorkout () {
       setEstimatedTime('')
       setWorkoutType('')
       setSteps('') 
-      console.log('new workout added:', data)
+      console.log('new workout edited:', data)
       navigate('/workouts')
     }
   }
@@ -110,7 +129,7 @@ export default function CreateWorkout () {
               placeholder="Enter Steps" />
           </Form.Group>  
           <Button variant="primary" type="submit">
-            Add Workout
+            Edit Workout
           </Button>
         </Form>
       );

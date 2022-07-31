@@ -14,12 +14,11 @@ import '../recipeDisplay.css'
 export default function DisplayWorkout () {
  const {id} = useParams()
  console.log(id)
- const workoutID = id
  const [workout, setWorkout] = useState([])
  const navigate = useNavigate()
 
  let handleDelete = async () => {
-  const URL = `${process.env.REACT_APP_BACKEND_URL}/api/workouts/${workoutID}`
+  const URL = `${process.env.REACT_APP_BACKEND_URL}/api/workouts/${id}`
   await fetch(URL, {
    method: "DELETE",
   });
@@ -29,45 +28,49 @@ export default function DisplayWorkout () {
      useEffect(() => {
           const fetchData = async () => {
                console.log(process.env)
-               const URL = `${process.env.REACT_APP_BACKEND_URL}/api/workouts/${workoutID}`
+               const URL = `${process.env.REACT_APP_BACKEND_URL}/api/workouts/${id}`
                console.log(URL)
                const response = await fetch(URL)
                const data = await response.json()
-               setWorkout([data])
+               setWorkout(data)
           }
           fetchData()
      }, [])
 
- const display = workout && workout.map((eachWorkout) => {
-      return (
+ const display = (
        <Container className='recipe-display'>
          <Row>
           <Col className='recipe-img-desc'>
-            <img alt='Food' variant='bottom' src={eachWorkout.imgURL}/>
-            <p>{eachWorkout.desc}</p>
+            <img alt='Food' variant='bottom' src={workout.imgURL}/>
+            <p>{workout.desc}</p>
           </Col>
           <Col>
           <header className='recipe-display-header'>
-            <h1>{eachWorkout.title}</h1>
+            <h1>{workout.title}</h1>
             <p>
-             <span style={{fontWeight: 'bold'}}>Estimated Time: </span>{eachWorkout.time} minutes </p>
+             <span style={{fontWeight: 'bold'}}>Estimated Time: </span>{workout.time} minutes </p>
             <p>
-             <span style={{fontWeight: 'bold'}}>Type: </span>{eachWorkout.type} </p>
+             <span style={{fontWeight: 'bold'}}>Type: </span>{workout.type} </p>
            </header>
-           <p>{eachWorkout.steps}</p>
+           <p>{workout.steps}</p>
           </Col>
          </Row>
        </Container>
       )
-     })
 
  return (
       <div>
         <Row>
            {display}
         </Row>
-          <Button onClick={handleDelete} className='delete-buttons' variant="danger" style={{float: 'left', marginRight: '7px'}}>Delete Workout</Button>
-          <Button disabled className='edit-buttons' variant="warning" style={{float: 'left', marginRight: '7px'}}>Edit Workouts</Button>
+        <Button onClick={handleDelete} className='delete-buttons' variant="danger" style={{float: 'left', marginRight: '7px'}}>Delete Workout</Button>
+
+          
+        <Link to={`/updateWorkout/${id}`}>
+           <Button className='edit-buttons' variant="warning" style={{float: 'left', marginRight: '7px'}}>
+            Edit Workouts
+           </Button>
+        </Link>
         <Link to='/workouts'>
           <Button className='back-buttons' variant="info" style={{float: 'left'}}>Back to Workouts</Button>
         </Link>

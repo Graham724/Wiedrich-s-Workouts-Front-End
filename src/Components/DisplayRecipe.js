@@ -14,12 +14,11 @@ import '../recipeDisplay.css'
 export default function DisplayRecipe () {
  const {id} = useParams()
  console.log(id)
- const recipeID = id
  const [recipe, setRecipe] = useState([])
  const navigate = useNavigate()
 
  let handleDelete = async () => {
-  const URL = `${process.env.REACT_APP_BACKEND_URL}/api/recipes/${recipeID}`
+  const URL = `${process.env.REACT_APP_BACKEND_URL}/api/recipes/${id}`
   await fetch(URL, {
    method: "DELETE",
   });
@@ -29,55 +28,52 @@ export default function DisplayRecipe () {
      useEffect(() => {
           const fetchData = async () => {
                console.log(process.env)
-               const URL = `${process.env.REACT_APP_BACKEND_URL}/api/recipes/${recipeID}`
+               const URL = `${process.env.REACT_APP_BACKEND_URL}/api/recipes/${id}`
                console.log(URL)
                const response = await fetch(URL)
                const data = await response.json()
-               setRecipe([data])
+               setRecipe(data)
           }
           fetchData()
      }, [])
 
- const display = recipe && recipe.map((eachRecipe) => {
-      return (
+ const display = (
        <Container className='recipe-display'>
          <Row>
           <Col className='recipe-img-desc'>
-            <img alt='Food' variant='bottom' src={eachRecipe.imgURL}/>
-            <p>{eachRecipe.desc}</p>
+            <img alt='Food' variant='bottom' src={recipe.imgURL}/>
+            <p>{recipe.desc}</p>
           </Col>
           <Col>
           <header className='recipe-display-header'>
-            <h1>{eachRecipe.title}</h1>
+            <h1>{recipe.title}</h1>
             <p>
-             <span style={{fontWeight: 'bold'}}>Servings: </span>{eachRecipe.serving} </p>
+             <span style={{fontWeight: 'bold'}}>Servings: </span>{recipe.serving} </p>
             <p>
-             <span style={{fontWeight: 'bold'}}>Prep Time: </span>{eachRecipe.prepTime} minutes </p>
+             <span style={{fontWeight: 'bold'}}>Prep Time: </span>{recipe.prepTime} minutes </p>
             <p>
-             <span style={{fontWeight: 'bold'}}>Cook Time: </span>{eachRecipe.cookTime} minutes </p>
-             <p>
-             {/* <span style={{fontWeight: 'bold'}}>Gluten Free: </span>{eachRecipe.glutenFree}
-             <span style={{fontWeight: 'bold'}}>Vegan: </span>{eachRecipe.glutenFree} */}
-             </p>
+             <span style={{fontWeight: 'bold'}}>Cook Time: </span>{recipe.cookTime} minutes </p>
+             
            </header>
-           <p>{eachRecipe.steps}</p>
+           <p>{recipe.steps}</p>
           </Col>
          </Row>
        </Container>
       )
-     })
 
  return (
       <div>
         <Row>
            {display}
         </Row>
-          <Button onClick={handleDelete} className='delete-buttons' variant="danger" style={{float: 'left', marginRight: '7px'}}>
+        <Button onClick={handleDelete} className='delete-buttons' variant="danger" style={{float: 'left', marginRight: '7px'}}>
             Delete Recipe
            </Button>
-           <Button disabled className='edit-buttons' variant="warning" style={{float: 'left', marginRight: '7px'}}>
+        <Link to={`/updateRecipe/${id}`}>
+           <Button className='edit-buttons' variant="warning" style={{float: 'left', marginRight: '7px'}}>
              Edit Recipe
             </Button>
+        </Link>
            <Link to='/recipes'>
             <Button className='back-buttons' variant="info" style={{float: 'left'}}>
               Back to Recipes

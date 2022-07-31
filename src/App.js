@@ -14,6 +14,8 @@ import CreateRecipe from './Components/CreateRecipe';
 import CreateWorkout from './Components/CreateWorkout'
 import DisplayRecipe from './Components/DisplayRecipe';
 import DisplayWorkout from './Components/DisplayWorkout';
+import EditRecipe from './Components/EditRecipe';
+import EditWorkout from './Components/EditWorkout';
 
 
 function App() {
@@ -27,29 +29,19 @@ function App() {
       <Container>
             <Nav variant='pills' fill defaultActiveKey="/Home">
               <Nav.Item>
-                <Nav.Link>
                 <Link to="/">Home</Link>
-                </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link>
                 <Link to="/recipes">Recipes</Link>
-                </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link>
                 <Link to="/workouts">Workouts</Link>
-                </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link>
                 <Link to="/createRecipe">Create Recipe</Link>
-                </Nav.Link>
               </Nav.Item>
               <Nav.Item>
-                <Nav.Link>
                 <Link to="/createWorkout">Create Workout</Link>
-                </Nav.Link>
               </Nav.Item>
             </Nav>
           </Container>
@@ -64,9 +56,12 @@ function App() {
             <Route path ='/createWorkout' element={<CreateWorkout/>} />
             <Route path ={`/getRecipe/:id`} element={<DisplayRecipe/>} />
             <Route path ={`/getWorkout/:id`} element={<DisplayWorkout/>} />
-            <Route path ={`/deleteRecipe/:id`} element={<AllRecipes/>} />
+            <Route path ={`/deleteRecipe/:id`} element={<AllRecipes/>}
             <Route path ={`/deleteWorkout/:id`} element={<AllWorkouts/>} />
             <Route path ={`/updateRecipe/:id`} element={<AllRecipes/>} />
+            <Route path ={`/deleteWorkout/:id`} element={<AllRecipes/>} />
+            <Route path ={`/updateRecipe/:id`} element={<EditRecipe/>} />
+            <Route path ={`/updateWorkout/:id`} element={<EditWorkout/>} />
           </Routes>
         </div>
         </Router>
