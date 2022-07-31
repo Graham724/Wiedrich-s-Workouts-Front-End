@@ -14,7 +14,6 @@ import '../recipeDisplay.css'
 export default function DisplayWorkout () {
  const {id} = useParams()
  console.log(id)
- const workoutID = id
  const [workout, setWorkout] = useState([])
  const navigate = useNavigate()
 
@@ -29,7 +28,7 @@ export default function DisplayWorkout () {
      useEffect(() => {
           const fetchData = async () => {
                console.log(process.env)
-               const URL = `${process.env.REACT_APP_BACKEND_URL}/api/workouts/${workoutID}`
+               const URL = `${process.env.REACT_APP_BACKEND_URL}/api/workouts/${id}`
                console.log(URL)
                const response = await fetch(URL)
                const data = await response.json()
@@ -66,8 +65,19 @@ export default function DisplayWorkout () {
         <Row>
            {display}
         </Row>
+
+          <Button className='delete-buttons' variant="danger" style={{float: 'left', marginRight: '7px'}}>
+           Delete Workout
+           </Button>
+        <Link to={`/updateWorkout/${id}`}>
+           <Button className='edit-buttons' variant="warning" style={{float: 'left', marginRight: '7px'}}>
+            Edit Workouts
+           </Button>
+        </Link>
+
           <Button onClick={handleDelete} className='delete-buttons' variant="danger" style={{float: 'left', marginRight: '7px'}}>Delete Workout</Button>
           <Button disabled className='edit-buttons' variant="warning" style={{float: 'left', marginRight: '7px'}}>Edit Workouts</Button>
+
         <Link to='/workouts'>
           <Button className='back-buttons' variant="info" style={{float: 'left'}}>Back to Workouts</Button>
         </Link>
