@@ -65,6 +65,8 @@ function App() {
             <Route path ={`/getRecipe/:id`} element={<DisplayRecipe/>} />
             <Route path ={`/getWorkout/:id`} element={<DisplayWorkout/>} />
             <Route path ={`/deleteRecipe/:id`} element={<AllRecipes/>} />
+            <Route path ={`/deleteWorkout/:id`} element={<AllWorkouts/>} />
+            <Route path ={`/updateRecipe/:id`} element={<AllRecipes/>} />
           </Routes>
         </div>
         </Router>
