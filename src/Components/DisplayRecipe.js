@@ -1,6 +1,6 @@
 //React features & hooks
 import { useEffect, useState } from 'react'
-import { BrowserRouter as Router, Link, Route, Routes, useParams } from 'react-router-dom'
+import { useNavigate, BrowserRouter as Router, Link, Route, Routes, useParams } from 'react-router-dom'
 
 //React-Bootstrap components
 import Container from 'react-bootstrap/Container';
@@ -15,12 +15,15 @@ export default function DisplayRecipe () {
  const {id} = useParams()
  console.log(id)
  const [recipe, setRecipe] = useState([])
+ const navigate = useNavigate()
 
- // function handleDelete(recipeID) {
- //  const newRecipe = recipe.filter((item) => item.id !== id);
-
- //  setRecipe(newRecipe)
- // }
+ let handleDelete = async () => {
+  const URL = `${process.env.REACT_APP_BACKEND_URL}/api/recipes/${recipeID}`
+  await fetch(URL, {
+   method: "DELETE",
+  });
+  navigate('/recipes')
+ };
      
      useEffect(() => {
           const fetchData = async () => {
@@ -68,6 +71,7 @@ export default function DisplayRecipe () {
         <Row>
            {display}
         </Row>
+
         <Link to={`/deleteRecipe/${id}`}>
           <Button disabled className='delete-buttons' variant="danger" style={{float: 'left', marginRight: '7px'}}>
             Delete Recipe
@@ -75,6 +79,11 @@ export default function DisplayRecipe () {
         </Link>
         <Link to={`/updateRecipe/${id}`}>
            <Button className='edit-buttons' variant="warning" style={{float: 'left', marginRight: '7px'}}>
+        <Button onClick={handleDelete} className='delete-buttons' variant="danger" style={{float: 'left', marginRight: '7px'}}>
+            Delete Recipe
+           </Button>
+           <Button disabled className='edit-buttons' variant="warning" style={{float: 'left', marginRight: '7px'}}>
+
              Edit Recipe
             </Button>
         </Link>

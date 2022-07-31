@@ -8,7 +8,7 @@ import '../form.css'
 export default function CreateWorkout () {
 
   const [title, setTitle] = useState('')
-  const [imgURL, setImgURL] = useState('')
+  const [imgURL, setImgURL] = useState()
   const [desc, setDesc] = useState('')
   const [estimatedTime, setEstimatedTime] = useState('')
   const [workoutType, setWorkoutType] = useState('')
