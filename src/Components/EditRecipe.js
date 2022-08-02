@@ -15,6 +15,7 @@ export default function EditRecipe () {
   const [serving, setServing] = useState('')
   const [prepTime, setPrepTime] = useState('')
   const [cookTime, setCookTime] = useState('')
+  const [ingredients, setIngredients] = useState('')
   const [steps, setSteps] = useState('')
 
   const [error, setError] = useState('')
@@ -33,6 +34,7 @@ export default function EditRecipe () {
          setServing(data.serving)
          setPrepTime(data.prepTime)
          setCookTime(data.cookTime)
+         setIngredients(data.ingredients)
          setSteps(data.steps)
     }
     fetchData()
@@ -65,6 +67,7 @@ export default function EditRecipe () {
       setServing('')
       setPrepTime('')
       setCookTime('')
+      setIngredients('')
       setSteps('')
       console.log('new recipe edited:', data);
       navigate('/recipes')
@@ -124,8 +127,16 @@ export default function EditRecipe () {
             value={cookTime}
             placeholder="Enter Estimated Cook Time" />
           </Form.Group>
+          <Form.Group className="mb-3" controlId="formCookTime">
+            <Form.Label>Ingedients</Form.Label>
+            <Form.Control 
+            type="text" 
+            onChange={(e) => setIngedients(e.target.value)}
+            value={ingredients}
+            placeholder="Enter Ingredients" />
+          </Form.Group>
           <Form.Group className="mb-3" controlId="formSteps">
-            <Form.Label>Ingredients and Steps</Form.Label>
+            <Form.Label>Steps</Form.Label>
             <Form.Control 
             type="steps" 
             required="required"

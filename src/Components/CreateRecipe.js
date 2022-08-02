@@ -14,6 +14,7 @@ export default function CreateRecipe () {
   const [serving, setServing] = useState('')
   const [prepTime, setPrepTime] = useState('')
   const [cookTime, setCookTime] = useState('')
+  const [ingredients, setIngredients] = useState('')
   const [steps, setSteps] = useState('')
 
   const [error, setError] = useState('')
@@ -22,7 +23,7 @@ export default function CreateRecipe () {
   const handleSubmit= async (e) => {
     e.preventDefault()
 
-    const recipe = {title, imgURL, desc, serving, prepTime, cookTime, steps}
+    const recipe = {title, imgURL, desc, serving, prepTime, cookTime, ingredients, steps}
     const URL = `${process.env.REACT_APP_BACKEND_URL}/api/recipes`
     const response = await fetch(URL, {
       method: 'POST',
@@ -44,6 +45,7 @@ export default function CreateRecipe () {
       setServing('')
       setPrepTime('')
       setCookTime('')
+      setIngredients('')
       setSteps('')
       console.log('new recipe added:', data);
       navigate('/recipes')
@@ -103,8 +105,16 @@ export default function CreateRecipe () {
             value={cookTime}
             placeholder="Enter Estimated Cook Time" />
           </Form.Group>
+          <Form.Group className="mb-3" controlId="formCookTime">
+            <Form.Label>Ingedients</Form.Label>
+            <Form.Control 
+            type="text" 
+            onChange={(e) => setIngedients(e.target.value)}
+            value={ingredients}
+            placeholder="Enter Ingredients" />
+          </Form.Group>
           <Form.Group className="mb-3" controlId="formSteps">
-            <Form.Label>Ingredients and Steps</Form.Label>
+            <Form.Label>Steps</Form.Label>
             <Form.Control 
             type="steps" 
             required="required"
