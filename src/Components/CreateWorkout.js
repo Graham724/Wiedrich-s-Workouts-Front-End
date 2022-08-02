@@ -82,7 +82,7 @@ export default function CreateWorkout () {
               type="number" 
               onChange={(e) => setEstimatedTime(e.target.value)}
               value={estimatedTime}
-              placeholder="Enter Estimated Time" />
+              placeholder="Enter Estimated Time in minutes" />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Workout Type</Form.Label>

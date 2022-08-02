@@ -4,8 +4,8 @@ body {
  padding: 50px;
 
  background: linear-gradient(
-       to right, #d5a2f8,
-       #12dee6, #ff83ea); 
+       to right, #75f4d8,
+       #12dee6, #a1ffaa); 
    background-size: 400% 400%;
    animation: animate-background 25s infinite ease-in-out;
 }

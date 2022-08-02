@@ -117,7 +117,7 @@ export default function EditRecipe () {
             type="number" 
             onChange={(e) => setPrepTime(e.target.value)}
             value={prepTime}
-            placeholder="Enter Estimated Prep Time" />
+            placeholder="Enter Estimated Prep Time in minutes" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formCookTime">
             <Form.Label>Cook Time</Form.Label>
@@ -125,7 +125,7 @@ export default function EditRecipe () {
             type="number" 
             onChange={(e) => setCookTime(e.target.value)}
             value={cookTime}
-            placeholder="Enter Estimated Cook Time" />
+            placeholder="Enter Estimated Cook Time in minutes" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formCookTime">
             <Form.Label>Ingedients</Form.Label>
