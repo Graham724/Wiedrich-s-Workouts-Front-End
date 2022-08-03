@@ -106,11 +106,14 @@ export default function CreateRecipe () {
             placeholder="Enter Estimated Cook Time in minutes" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formCookTime">
-            <Form.Label>Ingedients</Form.Label>
+            <Form.Label>Ingredients</Form.Label>
             <Form.Control 
             type="text" 
-            onChange={(e) => setIngedients(e.target.value)}
+            onChange={(e) => setIngredients(e.target.value)}
             value={ingredients}
+            required="required"
+            as="textarea" 
+            rows={3} 
             placeholder="Enter Ingredients" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formSteps">
