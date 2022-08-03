@@ -10,8 +10,8 @@ export default function CreateWorkout () {
   const [title, setTitle] = useState('')
   const [imgURL, setImgURL] = useState()
   const [desc, setDesc] = useState('')
-  const [estimatedTime, setEstimatedTime] = useState('')
-  const [workoutType, setWorkoutType] = useState('')
+  const [time, setTime] = useState('')
+  const [type, setType] = useState('')
   const [steps, setSteps] = useState('')
 
   const [error, setError] = useState('')
@@ -20,7 +20,7 @@ export default function CreateWorkout () {
   const handleSubmit= async (e) => {
     e.preventDefault()
 
-    const workout = {title, imgURL, desc, estimatedTime, workoutType, steps}
+    const workout = {title, imgURL, desc, time, type, steps}
     const URL = `${process.env.REACT_APP_BACKEND_URL}/api/workouts`
     const response = await fetch(URL, {
       method: 'POST',
@@ -39,8 +39,8 @@ export default function CreateWorkout () {
       setTitle('')
       setImgURL('')
       setDesc('')
-      setEstimatedTime('')
-      setWorkoutType('')
+      setTime('')
+      setType('')
       setSteps('') 
       console.log('new workout added:', data)
       navigate('/workouts')
@@ -80,22 +80,24 @@ export default function CreateWorkout () {
             <Form.Label>Estimated Time</Form.Label>
             <Form.Control 
               type="number" 
-              onChange={(e) => setEstimatedTime(e.target.value)}
-              value={estimatedTime}
+              onChange={(e) => setTime(e.target.value)}
+              value={time}
               placeholder="Enter Estimated Time in minutes" />
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Workout Type</Form.Label>
-            <Form.Select className="custom-select" onChange={(e) =>{
-              const selectedWorkoutType = e.target.value;
-              setWorkoutType(selectedWorkoutType)
-              }}>
+            <Form.Select required className="custom-select" onChange={(e) =>{
+              const selectedType = e.target.value;
+              setType(selectedType)
+            }}>
+                <option value=''>Choose a Workout Type</option>
                 <option value="Upper Body Strength">Upper Body Strength</option>
                 <option value="Lower Body Strength">Lower Body Strength</option>
                 <option value="Core Workout">Core Workout</option>
                 <option value="Flexibilty/Recovery">Flexibilty/Recovery</option>
                 <option value="Yoga">Yoga</option>
                 <option value="Meditation">Meditation</option>
+                <option value="Other">Other</option>
             </Form.Select>
           </Form.Group>
           <Form.Group className="mb-3" controlId="formsteps">

@@ -44,7 +44,7 @@ export default function EditRecipe () {
   const handleSubmit= async (e) => {
     e.preventDefault()
 
-    const recipe = {title, imgURL, desc, serving, prepTime, cookTime, steps}
+    const recipe = {title, imgURL, desc, serving, prepTime, cookTime, steps, ingredients}
     const URL = `${process.env.REACT_APP_BACKEND_URL}/api/recipes/${id}`
     const response = await fetch(URL, {
       method: 'PATCH',
@@ -70,7 +70,7 @@ export default function EditRecipe () {
       setIngredients('')
       setSteps('')
       console.log('new recipe edited:', data);
-      navigate('/recipes')
+      navigate(`/getRecipe/${id}`)
     }
   }
 
@@ -128,11 +128,13 @@ export default function EditRecipe () {
             placeholder="Enter Estimated Cook Time in minutes" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formCookTime">
-            <Form.Label>Ingedients</Form.Label>
+            <Form.Label>Ingredients</Form.Label>
             <Form.Control 
             type="text" 
-            onChange={(e) => setIngedients(e.target.value)}
+            onChange={(e) => setIngredients(e.target.value)}
             value={ingredients}
+            as="textarea" 
+            rows={3} 
             placeholder="Enter Ingredients" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="formSteps">
@@ -147,7 +149,7 @@ export default function EditRecipe () {
             placeholder="Enter Steps" />
           </Form.Group>
           <Button variant="primary" type="submit">
-            Edit Recipe
+            Save
           </Button>
         </Form>
       );

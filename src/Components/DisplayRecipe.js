@@ -42,7 +42,6 @@ export default function DisplayRecipe () {
          <Row>
           <Col className='recipe-img-desc'>
             <img alt='Food' variant='bottom' src={recipe.imgURL}/>
-            <p>{recipe.desc}</p>
           </Col>
           <Col>
           <header className='recipe-display-header'>
@@ -53,8 +52,12 @@ export default function DisplayRecipe () {
              <span style={{fontWeight: 'bold'}}>Prep Time: </span>{recipe.prepTime} minutes </p>
             <p>
              <span style={{fontWeight: 'bold'}}>Cook Time: </span>{recipe.cookTime} minutes </p>
-             
+             <br></br>
+             <p style={{fontWeight: 'bold', fontSize: '20px'}}>{recipe.desc}</p>
            </header>
+           <h2>Ingredients: </h2>
+           <p>{recipe.ingredients}</p>
+           <h2>Steps: </h2>
            <p>{recipe.steps}</p>
           </Col>
          </Row>

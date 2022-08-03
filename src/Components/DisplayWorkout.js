@@ -42,7 +42,6 @@ export default function DisplayWorkout () {
          <Row>
           <Col className='recipe-img-desc'>
             <img alt='Food' variant='bottom' src={workout.imgURL}/>
-            <p>{workout.desc}</p>
           </Col>
           <Col>
           <header className='recipe-display-header'>
@@ -51,6 +50,8 @@ export default function DisplayWorkout () {
              <span style={{fontWeight: 'bold'}}>Estimated Time: </span>{workout.time} minutes </p>
             <p>
              <span style={{fontWeight: 'bold'}}>Type: </span>{workout.type} </p>
+             <br></br>
+             <p style={{fontWeight: 'bold', fontSize: '20px'}}>{workout.desc}</p>
            </header>
            <p>{workout.steps}</p>
           </Col>
